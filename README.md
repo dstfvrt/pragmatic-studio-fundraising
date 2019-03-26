@@ -1,1 +1,1 @@
-# ps-fundraising
+# pragmatic-studio-fundraising
