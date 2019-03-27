@@ -5,5 +5,6 @@ project_2_funding = 2
 project_3 = "Project Theta"
 project_3_funding = 1
 
-puts "#{project_1} has $#{project_1_funding} in funding."
-puts "Projects:\n#{project_1}\n#{project_2}\n#{project_3}"
+puts "Projects:\n#{project_1}: #{project_1_funding}\n"
+puts "#{project_2}: #{project_2_funding}\n"
+puts "#{project_3}: #{project_3_funding}"
