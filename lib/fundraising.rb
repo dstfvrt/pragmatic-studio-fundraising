@@ -1,4 +1,8 @@
 class Project
+
+  attr_accessor :name
+  attr_reader :funding, :funding_target
+
   def initialize(name, funding=1000, funding_target=10000)
     @name = name.capitalize
     @funding = funding
@@ -13,6 +17,10 @@ class Project
   def remove_funds(amount)
     @funding -= amount
     puts "Project #{@name} lost funds!"
+  end
+
+  def funds_needed
+    @funding_target - @funding
   end
 
   def to_s
