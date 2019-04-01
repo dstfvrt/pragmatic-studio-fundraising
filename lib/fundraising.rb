@@ -24,17 +24,29 @@ class Project
   end
 
   def to_s
-    "Project: #{@name}\tFunding: #{@funding}\t Funding Target: #{@funding_target}"
+    "Project: #{@name}\tFunds needed: #{funds_needed}"
   end
 end
 
 alpha = Project.new("alpha", 10000, 100000)
-puts alpha
 beta = Project.new("beta")
-puts beta
-beta.add_funds(200)
-puts beta
 gamma = Project.new("gamma", 400, 1200)
-puts gamma
-gamma.remove_funds(120)
-puts gamma
+
+projects = [alpha, beta, gamma]
+
+puts "There are #{projects.length} active projects."
+projects.each do |project, index|
+  project.add_funds(50)
+  project[index] = Project.new("new proj")
+  puts project
+end
+
+projects.each do |project, index|
+  if project.funds_needed > 0
+  {
+    #I actually don't know the method call to use here
+    projects[index] = nil
+    project.push(Project.new("Project #{index}")
+    projects[-1].to_s()
+  }
+end
