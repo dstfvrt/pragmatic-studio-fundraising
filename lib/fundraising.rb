@@ -28,25 +28,44 @@ class Project
   end
 end
 
+class Hedgefund
+  attr_reader :co_name, :projects
+
+  def initialize(name)
+    @co_name = name
+    @projects = []
+  end
+
+  def add_project(project)
+    @projects.push(project)
+  end
+
+  def status
+    puts "There are #{@projects.length} active projects."
+    @projects.each do |project, index|
+      puts project
+    end
+  end
+end
+
 alpha = Project.new("alpha", 10000, 100000)
 beta = Project.new("beta")
 gamma = Project.new("gamma", 400, 1200)
 
-projects = [alpha, beta, gamma]
+favorite_funding = Hedgefund.new("Favorite LLC")
+favorite_funding.add_project(alpha)
+favorite_funding.add_project(beta)
+favorite_funding.add_project(gamma)
 
-puts "There are #{projects.length} active projects."
-projects.each do |project, index|
-  project.add_funds(50)
-  project[index] = Project.new("new proj")
-  puts project
-end
+favorite_funding.status;
 
-projects.each do |project, index|
+favorite_funding.projects.each do |project, index|
   if project.funds_needed > 0
-  {
-    #I actually don't know the method call to use here
-    projects[index] = nil
-    project.push(Project.new("Project #{index}")
-    projects[-1].to_s()
-  }
+    favorite_funding.projects.delete(project)
+    favorite_funding.add_project(Project.new("Project #{index}"))
+  end
 end
+
+puts favorite_funding.projects
+puts '----------------'
+puts favorite_funding.status
