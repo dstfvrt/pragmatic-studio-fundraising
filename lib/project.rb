@@ -10,21 +10,21 @@ class Project
   end
 
   def add_funds(amount)
-    @funding += amount
-    puts "Project #{@name} added funds!"
+    funding += amount
+    puts "Project #{name} added funds!"
   end
 
   def remove_funds(amount)
-    @funding -= amount
-    puts "Project #{@name} lost funds!"
+    funding -= amount
+    puts "Project #{name} lost funds!"
   end
 
   def funds_needed
-    @funding_target - @funding
+    funding_target - funding
   end
 
   def to_s
-    "Project: #{@name}\tFunds needed: #{funds_needed}"
+    "Project: #{name}\tFunds needed: #{funds_needed}"
   end
 end
 

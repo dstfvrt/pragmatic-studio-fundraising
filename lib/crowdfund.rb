@@ -12,13 +12,11 @@ favorite_funding.add_project(gamma)
 
 favorite_funding.status;
 
-favorite_funding.projects.each do |project, index|
+favorite_funding.projects.each_with_index do |project, index|
   if project.funds_needed > 0
     favorite_funding.projects.delete(project)
     favorite_funding.add_project(Project.new("Project #{index}"))
   end
 end
 
-puts favorite_funding.projects
-puts '----------------'
 puts favorite_funding.status

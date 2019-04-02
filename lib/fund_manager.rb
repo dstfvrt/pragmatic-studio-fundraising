@@ -8,13 +8,11 @@ class Hedgefund
   end
 
   def add_project(project)
-    @projects.push(project)
+    projects.push(project)
   end
 
   def status
-    puts "There are #{@projects.length} active projects."
-    @projects.each do |project, index|
-      puts project
-    end
+    puts "There are #{projects.length} active projects."
+    projects
   end
 end
