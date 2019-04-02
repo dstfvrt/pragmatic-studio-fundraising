@@ -61,6 +61,7 @@ favorite_funding.status;
 
 favorite_funding.projects.each do |project, index|
   if project.funds_needed > 0
+    df-objects-interacting
     favorite_funding.projects.delete(project)
     favorite_funding.add_project(Project.new("Project #{index}"))
   end
