@@ -45,7 +45,7 @@ projects.each do |project, index|
   if project.funds_needed > 0
   {
     #I actually don't know the method call to use here
-    projects[index] = nil
+    projects.delete(project)
     project.push(Project.new("Project #{index}")
     projects[-1].to_s()
   }
