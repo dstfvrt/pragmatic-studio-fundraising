@@ -1,7 +1,7 @@
+require 'pry'
 class Project
 
-  attr_accessor :name
-  attr_reader :funding, :funding_target
+  attr_accessor :name, :funding, :funding_target
 
   def initialize(name, funding=1000, funding_target=10000)
     @name = name.capitalize
@@ -10,6 +10,7 @@ class Project
   end
 
   def add_funds(amount)
+    binding.pry
     funding += amount
     puts "Project #{name} added funds!"
   end
@@ -20,6 +21,7 @@ class Project
   end
 
   def funds_needed
+    binding.pry
     funding_target - funding
   end
 
