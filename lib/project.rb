@@ -27,7 +27,6 @@ class Project
   end
 end
 
-
 if __FILE__ == $0
   alpha = Project.new("Alpha", 1200, 1800)
   alpha.add_funds(400)

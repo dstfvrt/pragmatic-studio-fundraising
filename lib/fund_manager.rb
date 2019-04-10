@@ -1,5 +1,6 @@
 require_relative 'project'
-require_relative 'die'
+require_relative 'funding_round'
+
 class Hedgefund
   attr_reader :co_name, :projects
 
@@ -19,17 +20,8 @@ class Hedgefund
   end
 
   def update
-    projects.each do |project|
-      @die.roll
-      if @die.number % 2 == 0
-        project.add_funds(100)
-      else
-        project.remove_funds(100)
-      end
-
-      if project.funds_needed <= 0
-        puts project.name ' is fully funded!'
-      end
+    @projects.each do |project|
+      FundingRound.update(project)
     end
   end
 end
