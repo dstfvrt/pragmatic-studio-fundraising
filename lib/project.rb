@@ -1,7 +1,6 @@
 class Project
 
-  attr_accessor :name
-  attr_reader :funding, :funding_target
+  attr_accessor :name, :funding, :funding_target
 
   def initialize(name, funding=1000, funding_target=10000)
     @name = name.capitalize
@@ -10,12 +9,12 @@ class Project
   end
 
   def add_funds(amount)
-    funding += amount
+    self.funding += amount
     puts "Project #{name} added funds!"
   end
 
   def remove_funds(amount)
-    funding -= amount
+    self.funding -= amount
     puts "Project #{name} lost funds!"
   end
 
