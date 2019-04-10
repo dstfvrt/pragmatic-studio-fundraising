@@ -1,4 +1,3 @@
-require 'pry'
 class Project
 
   attr_accessor :name, :funding, :funding_target
@@ -10,18 +9,16 @@ class Project
   end
 
   def add_funds(amount)
-    binding.pry
-    funding += amount
+    self.funding += amount
     puts "Project #{name} added funds!"
   end
 
   def remove_funds(amount)
-    funding -= amount
+    self.funding -= amount
     puts "Project #{name} lost funds!"
   end
 
   def funds_needed
-    binding.pry
     funding_target - funding
   end
 

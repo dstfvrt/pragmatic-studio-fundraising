@@ -1,4 +1,4 @@
-require_relative 'fund_manager'
+require './lib/fund_manager'
 
 describe Hedgefund do
   before do
@@ -8,7 +8,7 @@ describe Hedgefund do
   end
 
   it 'adds funds if a even number is rolled' do
-    allow_any_instance_of(Die).to receive(:roll).and_return(2)
+    allow_any_instance_of(Die).to receive(:number).and_return(2)
 
     @favoriteLLC.update
 
@@ -16,7 +16,7 @@ describe Hedgefund do
   end
 
   it 'deducts funds if an odd number is rolled' do
-    allow_any_instance_of(Die).to receive(:roll).and_return(2)
+    allow_any_instance_of(Die).to receive(:number).and_return(3)
     @project2 = Project.new('Beta', 10000, 100000)
     @favoriteLLC.add_project(@project2)
     @favoriteLLC.update
