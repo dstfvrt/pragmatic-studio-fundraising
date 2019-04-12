@@ -25,6 +25,10 @@ class Project
   def to_s
     "Project: #{name}\tFunds needed: #{funds_needed}"
   end
+
+  def <=> (other)
+    funds_needed <=> other.funds_needed
+  end
 end
 
 if __FILE__ == $0
