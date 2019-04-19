@@ -1,4 +1,5 @@
 require_relative 'die'
+require_relative 'pledge'
 
 module FundingRound
   def self.update(project)
@@ -12,6 +13,9 @@ module FundingRound
 
     if project.funds_needed <= 0
       puts project.name ' is fully funded!'
+    else
+      pledge = Donations.random
+      project.add_funds(pledge.amount)
     end
   end
 end
