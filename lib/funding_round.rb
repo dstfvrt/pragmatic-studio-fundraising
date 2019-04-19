@@ -15,7 +15,6 @@ module FundingRound
       puts project.name ' is fully funded!'
     else
       pledge = Donations.random
-      puts "#{project.name} received a #{pledge.name} worth #{pledge.amount}!"
       project.add_funds(pledge.amount)
     end
   end

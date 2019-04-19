@@ -1,3 +1,4 @@
+require_relative "pledge"
 class Project
 
   attr_accessor :name, :funding, :funding_target
@@ -6,6 +7,7 @@ class Project
     @name = name.capitalize
     @funding = funding
     @funding_target = funding_target
+    @pledges = Hash.new(0)
   end
 
   def add_funds(amount)
@@ -20,6 +22,12 @@ class Project
 
   def funds_needed
     funding_target - funding
+  end
+
+  def pledges(pledge)
+    @pledges[pledge.name] += pledge.amount
+    @funding += pledge.amount
+    puts "#{project.name} received a #{pledge.name} worth #{pledge.amount}!"
   end
 
   def to_s
