@@ -23,4 +23,5 @@ describe Hedgefund do
 
     expect(@project2.funding). to be < 60
   end
+
 end

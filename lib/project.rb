@@ -27,7 +27,13 @@ class Project
   def pledges(pledge)
     @pledges[pledge.name] += pledge.amount
     @funding += pledge.amount
-    puts "#{project.name} received a #{pledge.name} worth #{pledge.amount}!"
+    puts "#{name} received a #{pledge.name} worth #{pledge.amount}!"
+  end
+
+  def each_pledge
+    @pledges.each do |name, amount|
+      yield Pledge.new(name, amount)
+    end
   end
 
   def to_s
