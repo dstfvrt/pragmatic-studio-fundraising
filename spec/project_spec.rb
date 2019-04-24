@@ -28,5 +28,4 @@ describe Project do
       expect(pledge).to eq(@bronzePledge)
     end
   end
-
 end
