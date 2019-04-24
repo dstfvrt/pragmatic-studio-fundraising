@@ -50,13 +50,14 @@ class Hedgefund
       under_funded.each do |p|
         puts "#{p.name}, #{p.funding} out of #{p.funding_target}"
       end
-
-      puts "All pledges:"
-      projects.each do |p|
-        puts "$#{p.name} in #{p.name} pledges"
-      end
     end
 
-
+    puts "All pledges:"
+    projects.each do |p|
+      puts "#{p.name} pledges:"
+      p.each_pledge do |pledge|
+        puts "$#{pledge.amount} in #{pledge.name} pledges"
+      end
+    end
   end
 end
