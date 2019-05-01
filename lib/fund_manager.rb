@@ -1,5 +1,7 @@
+require 'csv'
 require_relative 'project'
 require_relative 'funding_round'
+
 class Hedgefund
   attr_reader :co_name, :projects
 
@@ -13,9 +15,27 @@ class Hedgefund
     projects.push(project)
   end
 
+  def load_projects(filename='projects.csv')
+    projects = CSV.open "./bin/#{filename}", headers: false
+    projects.each do |row|
+      name = row[0]
+      funding = row[1].to_i
+      target = row[2].to_i
+      add_project(Project.new(name, funding, target))
+    end
+  end
+
   def status
     puts "There are #{projects.length} active projects."
     projects
+  end
+
+  def save_stats(filename="fundingresults.txt")
+    File.open("./bin/#{filename}", "w") do |file|
+      @projects.each do |project|
+        file.puts "#{project.name}...#{project.funding}...#{project.funding_target}"
+      end
+    end
   end
 
   def update(days)

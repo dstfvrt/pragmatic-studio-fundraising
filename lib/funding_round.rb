@@ -12,7 +12,7 @@ module FundingRound
     end
 
     if project.funds_needed <= 0
-      puts project.name ' is fully funded!'
+      puts "#{project.name} is fully funded!"
     else
       pledge = Donations.random
       project.pledges(pledge)
