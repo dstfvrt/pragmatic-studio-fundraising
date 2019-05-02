@@ -1,5 +1,6 @@
 require_relative 'project'
 require_relative 'fund_manager'
+require_relative 'grant_project'
 
 alpha = Project.new("alpha", 10000, 100000)
 beta = Project.new("beta")
@@ -11,8 +12,8 @@ favorite_funding.add_project(alpha)
 favorite_funding.add_project(beta)
 favorite_funding.add_project(gamma)
 =end
-
 favorite_funding.load_projects("projects.csv")
+favorite_funding.add_project(GrantProject.new("Grant Proj"))
 loop do
   puts "Please enter days of funding: ('e' to exit)"
   answer = gets.chomp
