@@ -1,6 +1,8 @@
 require_relative "pledge"
+require_relative "fundable"
 class Project
-
+  include Fundable
+  
   attr_accessor :name, :funding, :funding_target
 
   def initialize(name, funding=1000, funding_target=10000)
@@ -8,20 +10,6 @@ class Project
     @funding = funding
     @funding_target = funding_target
     @pledges = Hash.new(0)
-  end
-
-  def add_funds(amount)
-    self.funding += amount
-    puts "Project #{name} added funds!"
-  end
-
-  def remove_funds(amount)
-    self.funding -= amount
-    puts "Project #{name} lost funds!"
-  end
-
-  def funds_needed
-    funding_target - funding
   end
 
   def pledges(pledge)
