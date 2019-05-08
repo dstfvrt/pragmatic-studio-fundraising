@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require './lib/fundraising/project'
 require './lib/fundraising/fund_manager'
 require './lib/fundraising/grant_project'
